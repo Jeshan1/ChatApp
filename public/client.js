@@ -21,6 +21,7 @@ function sendMessage(message){
 
     appendMessage(msg,'outgoing')
     textArea.value = ""
+    scrollToBottom()
 
     socket.emit('message',msg)
 }
