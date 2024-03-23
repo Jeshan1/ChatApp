@@ -16,7 +16,7 @@ app.get('/',(req,res)=>{
 const io = new Server(server)
 
 io.on('connection',(socket)=>{
-    console.log("Socket connected")
+    // console.log("Socket connected")
     // get message from textarea and send messgare to other connected device except sender
     socket.on('message',(msg)=>{
         socket.broadcast.emit('message',msg)
