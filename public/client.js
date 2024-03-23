@@ -1,11 +1,12 @@
 const socket = io()
 let userName = "";
-let textarea = document.getElementById('textarea')
+let textArea = document.querySelector('#textarea')
+let messageArea = document.querySelector('.message__area')
 while (!userName) {
     userName = prompt("Enter your name...")
 }
 
-textarea.addEventListener('keyup',(e)=>{
+textArea.addEventListener('keyup',(e)=>{
     if (e.target === 'Enter') {
         sendMessage(e.target.value)
     }
@@ -18,12 +19,31 @@ function sendMessage(message){
     }
 
     appendMessage(msg,'outgoing')
-    textarea.value = ""
+    textArea.value = ""
 
     socket.emit('message',msg)
 }
 
 function appendMessage(msg,type){
     const messageDiv = document.createElement('div')
-    
+    const className = type
+    messageDiv.classList.add(className,'message')
+
+    let messageContent = `
+                            <h4>${msg.user}</h4>
+                            <p>${msg.message}</p>
+                        `
+    messageDiv.innerHTML = messageContent
+    messageArea.appendChild(messageDiv)
+
+}
+
+//receive message
+socket.on('message',(msg)=>{
+    appendMessage(msg,'incoming')
+    scrollToBottom()
+})
+
+function scrollToBottom(){
+    messageArea.scrollTop = messageArea.scrollHeight
 }
