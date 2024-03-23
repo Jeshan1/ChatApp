@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Jeshan1/ChatApp#readme",
   "dependencies": {
-    "express": "^4.19.1"
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0"
   }
 }
