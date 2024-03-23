@@ -7,8 +7,9 @@ while (!userName) {
 }
 
 textArea.addEventListener('keyup',(e)=>{
-    if (e.target === 'Enter') {
+    if (e.key === 'Enter') {
         sendMessage(e.target.value)
+        console.log("hello")
     }
 })
 
