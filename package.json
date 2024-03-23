@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Jeshan1/ChatApp/issues"
   },
-  "homepage": "https://github.com/Jeshan1/ChatApp#readme"
+  "homepage": "https://github.com/Jeshan1/ChatApp#readme",
+  "dependencies": {
+    "express": "^4.19.1"
+  }
 }
